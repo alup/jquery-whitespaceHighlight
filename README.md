@@ -12,10 +12,10 @@ How to install
 
 Copy the .js file in your javascript media folder.
 In the <head> of the html files you want to use it, provide the following tag:
-	<script type="text/javascript" src="<path>js/jquery.hoverIntent.js"></script>
+	<script type="text/javascript" src="js/jquery.whitespaceHighlight.js"></script>
 Copy the .css file in your css folder.
 Provide a tag to link to your css code:
-	<link media="screen" href="{{ STATIC_URL }}lotte/css/jquery.whitespaceHighlight.css" type="text/css" rel="stylesheet"/>
+	<link media="screen" href="css/jquery.whitespaceHighlight.css" type="text/css" rel="stylesheet"/>
 
 
 How to run
