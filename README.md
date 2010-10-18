@@ -1,10 +1,15 @@
 Whitespace Highlighting JQuery
 ==============================
 
+
 About
 -----
 
 A jquery plugin which helps on highlighting whitespaces in a text/html snippet.
+
+Highlights whitespace characters in one or more selected DOM element. By default 
+it will highlight newlines, 2 or more sequential spaces and other individual 
+whitespace chars, such as tab.
 
 
 How to install

@@ -4,6 +4,17 @@
         highlight : function( options ) {
 
             return this.each(function(){
+
+                var settings = {
+                                'all-spaces' : false, // By default show 2 or more sequential spaces.
+                              };
+                      
+                // If options exist, lets merge them
+                // with our default settings
+                if ( options ) { 
+                    $.extend( settings, options );
+                }
+
                 var new_value = "";
                 // The string which will be marked.
                 var elem = $(this);
@@ -12,7 +23,11 @@
                 // [\f\n\r\t\v\u00A0\u2028\u2029]
                 var reWhiteSpaceStartSpace = new RegExp(/(^\u00A0+)|(^\u0020+)/g);
                 var reWhiteSpaceEndSpace = new RegExp(/(\u00A0+$)|(\u0020+$)/g);
-                var reWhiteSpaceSpace = new RegExp(/\u00A0{2,}|\u0020{2,}/g);
+                var reWhiteSpaceSpace;
+                if(settings['all-spaces'])
+                    reWhiteSpaceSpace = new RegExp(/\u00A0{1,}|\u0020{1,}/g);
+                else
+                    reWhiteSpaceSpace = new RegExp(/\u00A0{2,}|\u0020{2,}/g);
                 var reWhiteSpaceNewLine = new RegExp(/\n/g);
                 var reOtherWhiteSpace = new RegExp(/[\f\r\t\v\u2028\u2029]/g);
 
@@ -64,7 +79,7 @@
                 var matchedNewLine = reWhiteSpaceNewLine.exec(string);
                 // Mark the whitespace chars with <span> tags.
                 string = string.replace(reWhiteSpaceNewLine,
-                    '<span class="whitespace newline" title="New line">&#182;</span>'+matchedNewLine);
+                    '<span class="whitespace newline" title="New line">&#x23CE</span>'+matchedNewLine);
 
                 var matchedOther = reOtherWhiteSpace.exec(string);
                 string = string.replace(reOtherWhiteSpace,
